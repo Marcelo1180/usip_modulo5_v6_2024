@@ -1,0 +1,21 @@
+<form action="{% url 'categoria' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h1>Categoría</h1>
+        </legend>
+        {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+        {% endif %}
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre">
+        <br />
+        <input type="submit" value="Enviar">
+    </fieldset>
+</form>
+
+<ul>
+    {% for categoria in categorias %}
+    <li>{{ categoria.nombre }}</li>
+    {% endfor %}
+</ul>

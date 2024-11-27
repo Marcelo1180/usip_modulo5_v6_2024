@@ -1,0 +1,135 @@
+[
+    {
+        "model": "inventario.categoria",
+        "pk": 1,
+        "fields": {
+            "nombre": "Hogar"
+        }
+    },
+    {
+        "model": "inventario.categoria",
+        "pk": 2,
+        "fields": {
+            "nombre": "Frutas"
+        }
+    },
+    {
+        "model": "inventario.categoria",
+        "pk": 3,
+        "fields": {
+            "nombre": "Vegetales"
+        }
+    },
+    {
+        "model": "inventario.categoria",
+        "pk": 4,
+        "fields": {
+            "nombre": "Carnes"
+        }
+    },
+    {
+        "model": "inventario.producto",
+        "pk": 1,
+        "fields": {
+            "nombre": "Salsas",
+            "categoria": 1,
+            "descripcion": "Salsa Rik",
+            "precio": "10.00",
+            "stock": 2,
+            "unidades": "u",
+            "disponible": false,
+            "created": "2024-11-21T02:02:05.214Z",
+            "updated": "2024-11-27T01:09:49.985Z"
+        }
+    },
+    {
+        "model": "inventario.producto",
+        "pk": 2,
+        "fields": {
+            "nombre": "Manzana",
+            "categoria": 2,
+            "descripcion": "Manzana",
+            "precio": "2.00",
+            "stock": 10,
+            "unidades": "u",
+            "disponible": true,
+            "created": "2024-11-22T00:22:24.741Z",
+            "updated": "2024-11-22T00:22:24.741Z"
+        }
+    },
+    {
+        "model": "inventario.producto",
+        "pk": 3,
+        "fields": {
+            "nombre": "Sandia",
+            "categoria": 2,
+            "descripcion": "Sandia",
+            "precio": "17.00",
+            "stock": 50,
+            "unidades": "kg",
+            "disponible": true,
+            "created": "2024-11-22T00:22:57.572Z",
+            "updated": "2024-11-27T00:57:14.283Z"
+        }
+    },
+    {
+        "model": "inventario.producto",
+        "pk": 4,
+        "fields": {
+            "nombre": "Lechuga",
+            "categoria": 3,
+            "descripcion": "Lechuga",
+            "precio": "5.00",
+            "stock": 10,
+            "unidades": "u",
+            "disponible": true,
+            "created": "2024-11-22T00:23:25.582Z",
+            "updated": "2024-11-22T00:23:25.582Z"
+        }
+    },
+    {
+        "model": "inventario.producto",
+        "pk": 5,
+        "fields": {
+            "nombre": "Tomate",
+            "categoria": 3,
+            "descripcion": "Tomate",
+            "precio": "2.00",
+            "stock": 18,
+            "unidades": "u",
+            "disponible": true,
+            "created": "2024-11-22T00:23:49.395Z",
+            "updated": "2024-11-22T00:23:49.395Z"
+        }
+    },
+    {
+        "model": "inventario.producto",
+        "pk": 6,
+        "fields": {
+            "nombre": "Jabon",
+            "categoria": 1,
+            "descripcion": "Jabon",
+            "precio": "15.00",
+            "stock": 50,
+            "unidades": "u",
+            "disponible": true,
+            "created": "2024-11-22T00:24:11.717Z",
+            "updated": "2024-11-22T00:24:11.717Z"
+        }
+    },
+    {
+        "model": "inventario.producto",
+        "pk": 7,
+        "fields": {
+            "nombre": "Uva",
+            "categoria": 2,
+            "descripcion": "Uva",
+            "precio": "14.00",
+            "stock": 100,
+            "unidades": "u",
+            "disponible": true,
+            "created": "2024-11-27T00:44:10.382Z",
+            "updated": "2024-11-27T01:16:14.053Z"
+        }
+    }
+]
