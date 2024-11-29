@@ -18,4 +18,5 @@ urlpatterns = [
     path('categoria/count/', views.categoria_count, name='categoria-count'),
     path('producto/filtrar/unidades/', views.producto_en_unidades, name='producto-unidades'),
     path('producto/reporte/', views.reporte_producto, name='producto-reporte'),
+    path('contact/', views.enviar_mensaje, name='contact'),
 ]

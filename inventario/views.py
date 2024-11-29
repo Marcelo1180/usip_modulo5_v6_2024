@@ -1,13 +1,18 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
-from .serializers import CategoriaSerializer, ProductoSerializer, ReporteProductoSerializer
+from .serializers import CategoriaSerializer, ProductoSerializer, ReporteProductoSerializer, ContactSerializer
 
 from .forms import ProductoForm
 from .models import Categoria, Producto
 from rest_framework import generics
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from .permissions import IsUserAlmacen
+from .utils import permission_required
+import logging
 
+logger = logging.getLogger(__name__)
 
 def index(request):
     return HttpResponse("Hello World")
@@ -73,9 +78,22 @@ def producto_en_unidades(request):
 
 
 @api_view(['GET'])
+@permission_required(['inventario.reporte_cantidad'])
 def reporte_producto(request):
     try:
         productos = Producto.objects.filter(unidades='u')
+        logger.info(f"Productos encontrados: {productos.count()}")
         return JsonResponse(ReporteProductoSerializer({"cantidad": productos.count(), "productos": productos}).data, safe=False, status=200)
     except Exception as e:
+        logger.error(f"Error en reporte_producto: {e}")
         return JsonResponse({"error": str(e)}, safe=False, status=500)
+
+
+@api_view(['POST'])
+@permission_classes([IsUserAlmacen])
+def enviar_mensaje(request):
+    cs = ContactSerializer(data=request.data)
+    if cs.is_valid():
+        return JsonResponse({"mensaje": "Mensaje enviado correctamente"}, status=200)
+    else:
+        return JsonResponse({"mensaje": cs.errors}, status=200)
